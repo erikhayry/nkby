@@ -68,13 +68,8 @@ angular.module('ngScaffoldApp').directive 'map', ($log, $q, $timeout, uiGmapGoog
                                 scope.currentMarker.model.items = _items
                                 items = []
                             , 1000                           
-                        
-            _mapSettings = mapSettings
-            _mapSettings.events = 
-                'click': -> 
-                    console.log 'resize'
 
-            scope.map = _mapSettings
+            scope.map = mapSettings
             
             #events
             uiGmapGoogleMapApi.then (map) ->         

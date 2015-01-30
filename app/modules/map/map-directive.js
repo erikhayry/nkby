@@ -6,7 +6,7 @@ angular.module('ngScaffoldApp').directive('map', function($log, $q, $timeout, ui
     transclude: true,
     templateUrl: '/modules/map/map-tmplt.html',
     link: function(scope, element, attrs) {
-      var _mapSettings, _setMapPosition;
+      var _setMapPosition;
       scope.googleMap = {};
       scope.markers = [
         {
@@ -59,13 +59,7 @@ angular.module('ngScaffoldApp').directive('map', function($log, $q, $timeout, ui
           }
         }
       };
-      _mapSettings = mapSettings;
-      _mapSettings.events = {
-        'click': function() {
-          return console.log('resize');
-        }
-      };
-      scope.map = _mapSettings;
+      scope.map = mapSettings;
       uiGmapGoogleMapApi.then(function(map) {
         return _setMapPosition();
       });

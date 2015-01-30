@@ -13,7 +13,8 @@ angular.module('ngScaffoldApp').directive('map', function($log, $q, $timeout, ui
           id: 1,
           name: 'name 1',
           latitude: 63.522180,
-          longitude: 22.530485
+          longitude: 22.530485,
+          items: ['12', '23', '34', '45', '56', '67', '78']
         }, {
           id: 2,
           name: 'name 3',
@@ -31,7 +32,7 @@ angular.module('ngScaffoldApp').directive('map', function($log, $q, $timeout, ui
       scope.marker = {
         events: {
           click: function(currentMarker) {
-            var model;
+            var model, _items;
             model = currentMarker.model;
             if (!scope.currentMarker) {
               scope.currentMarker = currentMarker;
@@ -42,11 +43,18 @@ angular.module('ngScaffoldApp').directive('map', function($log, $q, $timeout, ui
                 });
               }, 600);
             } else {
+              _items = currentMarker.model.items;
+              currentMarker.model.items = [];
               scope.currentMarker = currentMarker;
-              return scope.googleMap.getGMap().panTo({
+              scope.googleMap.getGMap().panTo({
                 lat: model.latitude,
                 lng: model.longitude
               });
+              return $timeout(function() {
+                var items;
+                scope.currentMarker.model.items = _items;
+                return items = [];
+              }, 1000);
             }
           }
         }

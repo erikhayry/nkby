@@ -13,6 +13,15 @@ angular.module('ngScaffoldApp').directive 'map', ($log, $q, $timeout, uiGmapGoog
                     name: 'name 1'
                     latitude: 63.522180 
                     longitude: 22.530485
+                    items : [
+                        '12'
+                        '23'
+                        '34'
+                        '45'
+                        '56'
+                        '67'
+                        '78'
+                    ]                    
                 }
                 {
                     id: 2
@@ -51,8 +60,14 @@ angular.module('ngScaffoldApp').directive 'map', ($log, $q, $timeout, uiGmapGoog
                             , 600
                         
                         else
+                            _items = currentMarker.model.items
+                            currentMarker.model.items = []
                             scope.currentMarker = currentMarker
                             scope.googleMap.getGMap().panTo({lat: model.latitude, lng: model.longitude})
+                            $timeout () ->
+                                scope.currentMarker.model.items = _items
+                                items = []
+                            , 1000                           
                         
             _mapSettings = mapSettings
             _mapSettings.events = 

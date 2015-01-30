@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "map-ctrl.js",
+  "sourceRoot": "",
+  "sources": [
+    "map-ctrl.coffee"
+  ],
+  "names": [],
+  "mappings": "AAAA,YAAA,CAAA;AAAA,OAEO,CAAC,MAAR,CAAe,eAAf,CAA+B,CAAC,UAAhC,CAA2C,SAA3C,EAAsD,CACrD,QADqD,EAErD,SAAC,MAAD,GAAA,CAFqD,CAAtD,CAFA,CAAA"
+}

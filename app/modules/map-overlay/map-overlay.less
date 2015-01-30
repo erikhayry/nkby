@@ -1,0 +1,102 @@
+.m-map-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 50%;
+  height: 100%;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+  background-color: rgba(34, 34, 34, 1);
+  opacity: 1;
+  transition: .5s linear all;
+
+  &-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+    color: #222;
+    cursor: pointer;
+    background-color: #fff;
+    border: none;
+    border-radius: 100%;
+    outline: none;
+    &:active {
+      outline: none;
+    }
+  }
+
+  &-list-item {
+    padding: 40px;
+  }
+
+  .repeat-animation.ng-enter-stagger,
+  .repeat-animation.ng-leave-stagger,
+  .repeat-animation.ng-move-stagger {
+    /* yes we still need to do this too */
+    -webkit-animation-duration: 0;
+            animation-duration: 0;
+    /* notice how we're using animation instead of transition here */
+    -webkit-animation-delay: .05s;
+            animation-delay: .05s;
+  }
+
+  .repeat-animation.ng-enter {
+    -webkit-animation: enter_animation .5s;
+            animation: enter_animation .5s;
+  }
+  .repeat-animation.ng-leave {
+    -webkit-animation: leave_animation .5s;
+            animation: leave_animation .5s;
+  }
+
+  .repeat-animation.ng-enter {
+    /* pre-reflow animation styling */
+    opacity: 0;
+  }
+
+
+  &.ng-hide {
+    right: -50%;
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes enter_animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes enter_animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes leave_animation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes leave_animation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

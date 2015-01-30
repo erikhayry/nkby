@@ -1,12 +1,4 @@
 {
-    
-Error: Parse error on line 1:
-{    // JSHint Default Co
------^
-Expecting 'STRING', '}'
-// JSHint Default Configuration File (as on JSHint website)
-    // See http://jshint.com/docs/ for more details
-
     "maxerr"        : 50,       // {int} Maximum error before stopping
 
     // Enforcing
@@ -88,5 +80,9 @@ Expecting 'STRING', '}'
     "yui"           : false,    // Yahoo User Interface
 
     // Custom Globals
-    "globals"       : {}        // additional predefined global variables
+    "globals"       : {
+        "require"   : true
+        "angular"   : true
+        "module"    : true
+    }        // additional predefined global variables
 }

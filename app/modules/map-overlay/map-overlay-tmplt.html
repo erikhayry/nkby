@@ -1,0 +1,12 @@
+<div class="m-map-overlay">
+	<button ng-click="close()" class="m-map-overlay-btn">&#215;</button>
+	<h2>
+		{{currentMarker.model.name}}
+	</h2>
+
+	<ul class="m-map-overlay-list">
+		<li ng-repeat="item in currentMarker.model.items" class="m-map-overlay-list-item repeat-animation" ng-animate=" 'animate' ">
+			{{item}}
+		</li>
+	</ul>
+</div>

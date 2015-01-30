@@ -1,10 +1,27 @@
 <div class="m-map">
+	<div class="m-map-cover">
+		test
+	</div>
+
+	<map-overlay ng-hide="!currentMarker">
+	</map-overlay>
 	<ui-gmap-google-map 
 		center='map.center' 
 		zoom='map.zoom'
 		options='map.options'
-
+		class="has-overlay-{{!!currentMarker}}  m-map-markers"
+		control="googleMap"
+		refresh="refresh"
 	>
 
-	</ui-gmap-google-map>	
+		<ui-gmap-markers 
+			models="markers" 
+			idkey="'id'" 
+			coords="'self'" 
+			icon="'icon'" 
+			events="marker.events"
+		>
+	    </ui-gmap-markers>	
+
+	</ui-gmap-google-map>		
 </div>
